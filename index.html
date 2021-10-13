@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ShiftApp</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="./js/formulario.js"></script>
 </head>
 <body>
  <header class="header" id="inicio">
@@ -47,6 +48,26 @@
     </section>
 </main>
 <footer id="contacto">
+
+    <form action="#" name="formcontacto" class="formulario">
+        <label for="nombre"> Nombre</label>
+        <input type="text" name="nombre" id="nombre" required>
+    
+        <label for="apellido"> Apellido</label>
+        <input type="text" name="apellido" id="apellido" required>
+       
+        <label for="correoelectronico"> Correo Electronico</label>
+        <input type="email" name="correoelectronico" id="correoelectronico" required>
+       
+        <label for="consulta">Escriba aqui su consulta</label>
+        <input type="textarea" name="consulta" id="consulta" required >
+
+        <button type="button" onclick="datosform()" name="enviar" id="enviar">Enviar</button>
+
+    </form>
+
+
+
     <div class="contenedor footer-content">
         <div class="contact-us">
             <img src="img/logo2.png" alt=""> 
@@ -74,6 +95,8 @@
         </div> 
         <div class="line"></div>
     </div>
+
+
 
 </footer>
 

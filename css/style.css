@@ -198,3 +198,17 @@ footer{
     background: #fff;
     margin-bottom: 60px;   
 }
+
+.formulario{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    width: 350px;
+    margin-left: 650px;
+    font-weight: bolder;
+    padding: 10px;
+}
+
+#consulta{
+    height: 100px;
+}
