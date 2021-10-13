@@ -4,6 +4,9 @@ let datosform = function() {
     let correo = document.getElementById ("correoelectronico").value;
     let consulta = document.getElementById ("consulta").value;
     console.log (nombre + " " +apellido + " " +correo + " " +consulta);
-
+    setTimeout(() => {
+        location.reload()
+    }, 3000);
+    
 }
 
