@@ -2,21 +2,97 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Login Form Design One | Fazt</title>
+    <title>Crear Cuenta</title>
     <link rel="stylesheet" href="./css/master.css">
     <link rel="icon" href="./img/logo2.ico" type="image/x-icon">
+    <title>Crear una Nueva Cuenta </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <header>
-        <nav>
-          <ul id="botonav">
-            <li id="nav"> <a href="#"> Contacta al Proveedor</a></li>
-            <li id="nav"> <a href="#"> Sucursales </a></li>
-            <li id="nav"> <a href="./index.html"> Home </a></li>
-          </ul>
-        </nav>
-      </header>
-    
-    <h2>PROXIMAMENTE...</h2>
+   
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" >Menú</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="index.html">Inicio <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="login.html">Login</a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link" href="newaccount.html">Crear Cuenta</a>
+        </li>
+      </li>
+        
+      <li class="nav-item">
+        <a class="nav-link" href="index.html#servicio">Servicios</a>
+      </li>
+      
+      <li class="nav-item">
+        <a class="nav-link" href="index.html#contacto">Contacto</a>
+      </li>
+    </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Escribir aqui" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+      </form>
+    </div>
+  </nav>
+            
+ 
+    <div class="register-form mt-3 mb-3">
+      
+      <div class="container">
+  
+            <div class="row">
+                  <div class="col-md-6 d-none d-block bg-danger shadow">
+                  <h1 class="text-center pt-3">Crear Cuenta</h1>
+              </div>
+              <div class="col-md-6 bg-dark shadow">
+                  <form action="#" class="p-4 text-white">
+                    <div class="form-group">
+                        <label for="name"><i class="fas fa-user"></i> Nombre </label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="email"><i class="fas fa-envelope"></i> Email</label>
+                        <input type="email" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="pwd"><i class="fas fa-lock"></i> Crear Password</label>
+                        <input type="password" class="form-control" id="pwd">
+                    </div>
+                    <div class="form-group">
+                        <label for="pwd"><i class="fas fa-lock"></i> Confirmar Password</label>
+                        <input type="password" class="form-control" id="pwd">
+                    </div>
+                    <div class="form-group form-check">
+                        <label class="form-check-label">
+                          <input class="form-check-input shadow" type="checkbox"> Recordarme
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-danger mb-3 mt-3 float-right shadow">Registrar</button>
+                  </form>
+              </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/menu.js"></script>
+    <footer class="footer">
+      <p id="created">Created by tresgroup. Copyright® 2021 - All rights reserved. </p>
+    </footer>
 </body>
 </html>
