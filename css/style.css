@@ -1,16 +1,42 @@
- *{
-     margin: 0;
-     padding: 0;
-     box-sizing: border-box;
- }
+@charset "UTF-8";
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
- :root{
-scroll-behavior: smooth;
- }
+@media (prefers-reduced-motion: no-preference) {
+  :root {
+    scroll-behavior: smooth;
+  }
+}
 
- body{
+body{
      font-family: 'Open Sans', sans-serif;
  }
+
+h1, .h1 {
+    font-size: calc(1.375rem + 1.5vw);
+  }
+  @media (min-width: 1200px) {
+h1, .h1 {
+      font-size: 2.5rem;
+    }
+  }
+
+h2, .h2 {
+    font-size: calc(1.325rem + 0.9vw);
+  }
+  @media (min-width: 1200px) {
+h2, .h2 {
+      font-size: 2rem;
+    }
+  }
+p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+
  .contenedor{
      width: 90%;
      max-width: 1200px;
@@ -18,6 +44,7 @@ scroll-behavior: smooth;
      margin: auto;
      padding: 60px 0;
  }
+
 
  header{
      height: 80vh;
@@ -37,45 +64,9 @@ scroll-behavior: smooth;
      flex-direction: column;
      color: white;
  }
- .menu-hamburguesa{
-     position: fixed;
-     top: 30px;
-     right: 30px;
-     background: #fff;
-     width: 40px;
-     height: 40px;
-     cursor: pointer;
-     border-radius: 10px;
-     box-shadow: 0 0 6px rgba(0, 0, 0, .5);
- }
-
- .menu-navegacion{
-     position: fixed;
-     top: 0;
-     right: 0;
-     width: 30vw;
-     height: 100%;
-     background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
-     display: flex;
-     flex-direction: column;
-     justify-content: space-evenly;
-     align-items: center;
-     transition: transform .3s ease-in-out;
-     transform: translate(110%);
-     box-shadow: 0 0 6px rgba(0, 0, 0, .5);
- }
-
-.spread{
-    transform: translate(0);
-}
-
-.menu-navegacion a{
-    color: white;
-    text-decoration: none;
-}
 
 .titulo{
-    font-size: 60px;
+    font-size: 100px;
     margin-bottom: 15px;
 }
 
@@ -97,52 +88,14 @@ scroll-behavior: smooth;
     align-items: center;
     flex-wrap: wrap;
 }
-
-.contenedor-servicio img{
-    margin: 15px;
-    width: 60%;
-    box-shadow: 0 0 3px rgba(0, 0, 0, .5);;
-}
-
-.descripcion-servicio{
-    width: 45%;
-}
-
-.service{
-    margin-bottom: 20px;
-}
-
-.n-service{
-    margin-bottom: 7px;
-    color: #330867;
-}
-
-.number{
-    display: inline-block;
-    background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
-    width: 30px;
-    height: 30px;
-    color: #fff;
-    text-align: center;
-    border-radius: 50%;
-    font-weight: 700;
-    line-height: 30px;
-    margin-right: 5px;
-
-}
-
-footer{
-    background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
-    padding-bottom: 0.10px;
-}
-.footer-content{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    padding-top: 60px;
-    padding-bottom: 40px;
-}
+h2, .h2 {
+    font-size: calc(1.325rem + 0.9vw);
+  }
+  @media (min-width: 1200px) {
+    h2, .h2 {
+      font-size: 2rem;
+    }
+  }
 
 .contact-us img{
     width: 30%;    
@@ -198,3 +151,95 @@ footer{
     background: #fff;
     margin-bottom: 60px;   
 }
+
+.formulario{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    width: 350px;
+    margin-left: 650px;
+    font-weight: bolder;
+    padding: 10px;
+}
+
+#consulta{
+    height: 100px;
+}
+/*Footer*/
+
+.footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    /* Establece la altura fija del pie de página */
+    height: 350px;
+  }
+  
+  /* Pie de página más alto en pantallas pequeñas */
+  @media (max-width: 34em) {
+      body {
+        margin-bottom: 500px;
+      }
+      .footer {
+        height: 500px;
+      }
+  }
+  
+  /* Estilo y color del pie de página adhesivo */
+  footer {
+    padding-top: 30px;
+    padding-block-end: 15rem;
+    background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+    color: #bbb;
+  }
+  
+  footer a {
+    color: #999;
+    text-decoration:none;
+  }
+  
+  footer a:hover, footer a:focus {
+    color: #aaa;
+    text-decoration:none;
+    border-bottom:1px dotted #999;
+  }
+  
+  footer .form-control {
+      background-color: #1f2022;
+      box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.1);
+      border: none;
+      resize: none;
+      color: #d1d2d2;
+      padding: 0.7em 1em;
+  }
+  .nav-item{
+    color: white;
+  }
+  .list-unstyled{
+    font-size: 20px;
+  }
+  /* Carrusel de imagenes */
+  .carousel-item {
+    position: relative;
+    display: none;
+    float: left;
+    width: 100%;
+    margin-right: -100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transition: -webkit-transform 0.6s ease-in-out;
+    transition: transform 0.6s ease-in-out;
+    transition: transform 0.6s ease-in-out, -webkit-transform 0.6s ease-in-out;
+  }
+  
+  .carousel-caption {
+    position: absolute;
+    right: 15%;
+    bottom: 20px;
+    left: 15%;
+    z-index: 10;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #fff;
+    text-align: center;
+  }
