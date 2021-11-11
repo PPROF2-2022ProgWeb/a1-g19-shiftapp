@@ -13,7 +13,11 @@
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-</head>
+    <script> function mostrarMensaje(){
+      alert("Operacion Exitosa");
+      }
+      </script>
+<script>"./js/funcionesGrupo99.js"</script>
 <body>
   <header>
     <!--Menú -->
@@ -64,10 +68,12 @@
                     <h1 class="text-center pt-3">Crear Cuenta</h1>
                 </div>
                 <div class="col-md-6 bg-dark shadow">
-                    <form action="#" class="p-4 text-white">
+                    <form action="#" class="p-4 text-white" class="was-validated">
                       <div class="form-group">
                           <label for="name"><i class="fas fa-user"></i> Nombre </label>
-                          <input type="text" class="form-control" required>
+                          <input type="text" class="form-control" id="nombre" placeholder="ingrese nombre" required>
+                        <div class="valid-feedback">valid.</div>
+                        <div class="invalid-feedback">por favor llenar campo</div>
                       </div>
                       <div class="form-group">
                         <label for="surname"><i class="fas fa-user"></i> Apellido </label>
@@ -75,7 +81,11 @@
                       </div>
                       <div class="form-group">
                         <label for="date"><i class="fas fa-user"></i> Fecha de Nacimiento </label>
-                        <input type="date" class="form-control" required>
+                        <input id="fech" type="date" class="form-control" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="Edad"><i class="fas fa-user"></i> La edad es </label>
+                        <input id ="ed" type="text" class="form-control" required>
                       </div>
                       <div class="form-group">
                         <label for="provincia"><i class="fas fa-user"></i> Provincia </label>
@@ -102,7 +112,7 @@
                             <input class="form-check-input shadow" type="checkbox"> Recordarme
                           </label>
                       </div>
-                      <button type="submit" class="btn btn btn-light mb-3 mt-3 float-right shadow">Registrar</button>
+                      <button type="submit" onclick="mostrarMensaje()" class="btn btn btn-light mb-3 mt-3 float-right shadow">Registrar</button>
                     </form>
                 </div>
               </div>
@@ -163,27 +173,64 @@
                 <hr>
             </div>
             <div class="col-md-5">
-                <form>
+                <form class="was-validated">
+                  <div class="form-group">
                     <fieldset class="form-group">
-                      <input type="text" class="form-control" id="exampleInputName" placeholder="Ingrese su nombre">
+                      <input type="text" class="form-control" id="exampleInputName" placeholder="Ingrese su nombre" required>
+                    <div class="valid-feedback">ok</div>
+                    <div class="invalid-feedback">ingresar nombre</div>
                     </fieldset>
+                  </div> 
+                  <div class="form-group">
                     <fieldset class="form-group">
-                    <input type="text" class="form-control" id="exampleInputSurname" placeholder="Ingrese su apellido">
-                    </fieldset>
+                    <input type="text" class="form-control" id="exampleInputSurname" placeholder="Ingrese su apellido" required>
+                    <div class="valid-feedback">ok</div>
+                    <div class="invalid-feedback">ingresar apellido</div>  
+                  </fieldset>
+                  <div class="form-group">
+                  </div>
+                  <div class="form-group">
                     <fieldset class="form-group">
-                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Ingrese su E-mail">
-                    </fieldset>
+                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Ingrese su E-mail" required>
+                        <div class="valid-feedback">ok</div>
+                        <div class="invalid-feedback">ingresar email</div>  
+                      </fieldset>
+                  </div>
+                  <div class="form-group">
                     <fieldset class="form-group">
-                        <textarea class="form-control" id="exampleMessage" placeholder="Ingrese su Mensaje"></textarea>
+                        <textarea class="form-control" id="exampleMessage" placeholder="Ingrese su Mensaje" required></textarea>
                     </fieldset>
+                    <div class="valid-feedback">ok</div>
+                    <div class="invalid-feedback">ingresar mensaje</div>  
+                  </div>
                     <fieldset class="form-group text-xs-right ">
-                      <button type="button" class="btn btn-dark">Enviar</button>
+                      <button type="submit" class="btn btn-dark">Enviar</button>
                     </fieldset>
-                </form>
+                  </form>
                 <!-- Fin de formulario de contacto en el footer-->
             </div>
         </div>
     </div>
 </footer>
+<script>
+  // Disable form submissions if there are invalid fields
+  (function() {
+    'use strict';
+    window.addEventListener('load', function() {
+      // Get the forms we want to add validation styles to
+      var forms = document.getElementsByClassName('needs-validation');
+      // Loop over them and prevent submission
+      var validation = Array.prototype.filter.call(forms, function(form) {
+        form.addEventListener('submit', function(event) {
+          if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+          form.classList.add('was-validated');
+        }, false);
+      });
+    }, false);
+  })();
+  </script>
 </body>
 </html>
