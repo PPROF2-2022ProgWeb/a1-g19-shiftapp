@@ -13,13 +13,14 @@
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    
     <!-- Bootstrap icons-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
     
 </head>
 <body>
  <header class="header" id="inicio">
-      <!-- Menú -->
+      <!-- Menú-->
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" >Menú</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -55,113 +56,31 @@
         </div>
         <!--Fin del Menú -->
       </nav>
-      <!--Imagen principal en el Inicio -->
-      <div class="contenedor head">
-        <h1 class="titulo"><strong>ShiftApp</strong></h1>
-        <p class="copy">Aplicación para agendar turnos online desde la comodidad del hogar.</p>
-        <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
-          <a class="btn btn-dark btn-lg px-4 me-sm-3" href="#servicios" style="margin: 10px">Comenzar</a>
-          <a class="btn btn-outline-light btn-lg px-4" href="#!" style="margin: 10px">Leer más</a>
-      </div>
-     </div>
+      <!--FORMULARIO-->
+      <div class="col-md-2" id="contacto">
+        <h2 class="text-md-right">Datos Ingresados:</h2>
+        <hr>
+    </div>
+    <div class="col-md-5" id="form-contacto">
+        <form>
+            <fieldset class="form-group">
+              <input type="text" class="form-control" id="exampleInputName2"  disabled>
+            </fieldset>
+            <fieldset class="form-group">
+            <input type="text" class="form-control" id="exampleInputSurname2"  disabled>
+            </fieldset>
+            <fieldset class="form-group">
+                <input type="email" class="form-control" id="exampleInputEmail12"  disabled>
+            </fieldset>
+            <fieldset class="form-group">
+                <textarea class="form-control" id="exampleMessage2" disabled></textarea>
+            </fieldset>
+           
+        </form>
      
-     <!--Fin de imagen principal en el Inicio -->
+     <!--Fin del formulario -->
  </header>  
- <main>
-    <section class="contenedor" id="servicio">
-        <h2 class="fw-bolder text-center">Nuestro servicio</h2>
-        <p class="text-xxl-center">App de pre-agendamiento de citas para pequeñas organizaciones y empresas de barrio que necesiten regular con turno la asistencia de sus clientes.
-        Permitirá agendar citas en base a la capacidad de atención de las sucursales. Puede integrarse a la web de la marca (en caso que la tuviera).</p>
-    </section>
-    <!-- Sección características-->
-      <section class="py-5 border-bottom" id="features">
-        <div class="container px-5 my-5">
-            <div class="row gx-5">
-                <div class="col-lg-4 mb-5 mb-lg-0">
-                    <div class="feature bg-dark bg-gradient text-white rounded-3"><i class="bi bi-folder2-open"></i></div>
-                    <h2 class="h4 fw-bolder">Características</h2>
-                    <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-                    <a class="text-decoration-none" href="#!">
-                         Saber más
-                        <i class="bi bi-arrow-right"></i>
-                    </a>
-                </div>
-                <div class="col-lg-4 mb-5 mb-lg-0">
-                    <div class="feature bg-dark bg-gradient text-white rounded-3 mb-3"><i class="bi bi-card-checklist"></i></div>
-                    <h2 class="h4 fw-bolder">Requerimientos</h2>
-                    <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-                    <a class="text-decoration-none" href="#!">
-                        Saber más
-                        <i class="bi bi-arrow-right"></i>
-                    </a>
-                </div>
-                <div class="col-lg-4">
-                    <div class="feature bg-dark bg-gradient text-white rounded-3 mb-3"><i class="bi bi-info-circle"></i></div>
-                    <h2 class="h4 fw-bolder">Contratación</h2>
-                    <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-                    <a class="text-decoration-none" href="#!">
-                         Saber más
-                        <i class="bi bi-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-      </section>
-      <!-- Fin Sección características-->
-      <!-- Sección de testimonios-->
-      <section class="py-5 border-bottom">
-        <div class="container px-5 my-5 px-5">
-            <div class="text-center mb-5">
-                <h2 class="fw-bolder">Confían en nosotros:</h2>
-                        <a title="Gobierno de la Provincia de Córdoba" href="https://www.cba.gov.ar/"><img class="d-block w-10" src="img/gobcba2.png" HSPACE="250"/></a>
-                        <a title="Instituto Superior Politécnico de Córdoba" href="https://www.ispc.edu.ar/"><img class="d-block w-20" src="img/ISPC.png" src="img/gobcba2.png" HSPACE="400"/></a>
-            </div>
-        </div>
-    </section>
-    <!-- Fin Sección de testimonios-->
-    <!--Carrusel de imagenes para explicar resumidamente el funcionamientos de la App-->
-    <section class="carrusel-text" id="carrusel">
-      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner">
-            <div class="carousel-item vh-100 active">
-                <img class="d-block w-100" src="img/young-businesswoman-holding-coffee-.jpg" alt="First slide">
-                <div class="carousel-caption d-none d-md-block">
-                    <h2 class="display">Turno digital</h2>
-                    <p>El cliente podrá ingresar al sitio web y gestionar un turno digital (de acuerdo a la capacidad de cada sucursal y restricciones del negocio).</p>
-                </div>
-            </div>
-            <div class="carousel-item vh-100">
-                <img class="d-block w-100" src="img/young-businesswoman-holding-coffee-.jpg" alt="Second slide">
-                <div class="carousel-caption d-none d-md-block">
-                    <h2>Cuando llega a sucursal</h2>
-                    <p>Una vez que el cliente arribe a la sucursal, deberá confirmar su arribo desde el link que ha recibido, por Recepcionista, SMS y/o email.</p>
-                </div>
-            </div>
-            <div class="carousel-item vh-100">
-                <img class="d-block w-100" src="img/young-businesswoman-holding-coffee-.jpg" alt="Third slide">
-                <div class="carousel-caption d-none d-md-block">
-                    <h2>Turno en tiempo</h2>
-                    <p>Si el turno se encuentra en vigencia, el cliente visualizará una pantalla de confirmación, la cual será el comprobante de su reserva.</p>
-                </div>
-            </div>
-        </div>
-        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
-      </div>
-     <!--Fin de carrusel-->
-    </section>
-</main>
+ 
 <!--Footer-->
 <footer class="footer">
   <div class="container">
@@ -207,33 +126,12 @@
               <!-- Fin de Iconos de redes sociales-->
           </div>
           <!-- Formulario de contacto en el footer-->
-          <div class="col-md-2" id="contacto">
-              <h2 class="text-md-right">Contacto</h2>
-              <hr>
-          </div>
-          <div class="col-md-5">
-              <form>
-                  <fieldset class="form-group">
-                    <input type="text" class="form-control" id="exampleInputName" placeholder="Ingrese su nombre" required>
-                  </fieldset>
-                  <fieldset class="form-group">
-                  <input type="text" class="form-control" id="exampleInputSurname" placeholder="Ingrese su apellido" required>
-                  </fieldset>
-                  <fieldset class="form-group">
-                      <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Ingrese su E-mail" required>
-                  </fieldset>
-                  <fieldset class="form-group">
-                      <textarea class="form-control" id="exampleMessage" placeholder="Ingrese su Mensaje" required></textarea>
-                  </fieldset>
-                  <fieldset class="form-group text-xs-right ">
-                    <button id="submitBtn" type="button" class="btn btn-dark">Enviar</button>
-                  </fieldset>
-              </form>
+          
               <!-- Fin de formulario de contacto en el footer-->
           </div>
       </div>
   </div>
 </footer>
-<script src="./js/funcionesGrupo99.js"> </script>
+<script src="./js/funcionesGrupo99(2).js"> </script>
 </body>
 </html>
