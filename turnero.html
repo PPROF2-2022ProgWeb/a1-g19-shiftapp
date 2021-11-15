@@ -57,15 +57,15 @@
                         <h1 class="titulo"><strong>ShiftApp</strong></h1>
                         <p class="subtitulo">Agende sus turnos de forma online desde la comodidad de su hogar.</p>
                         <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
-                          <button id="btn-abrir-popup" class="btn-abrir-popup btn btn-dark btn-lg px-4 me-sm-3" style="margin: 10px">Solicite su turno aquí</button>
-                          <button id="btn-abrir-popup2" class="btn btn-outline-light btn-lg px-4 me-sm-3" style="margin: 10px">Acceder a mis turnos</button>
+                          <button id="btn-abrir-popup" class="btn-abrir-popup btn btn-dark btn-lg px-4 me-sm-3" style="margin: 10px" onclick="popups()">Solicite su turno aquí</button>
+                          <button id="btn-abrir-popup2" class="btn btn-outline-light btn-lg px-4 me-sm-3" style="margin: 10px" >Acceder a mis turnos</button>
                       </div>
                 </div>
                 <div id="content-wrap">
                     <!-- Popup para solicitar turnos-->
                     <div id="overlay" class="overlay">
                             <div id="popup" class="popup">
-                                <a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
+                                <a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup" ><i class="fas fa-times"></i></a>
                                 <h3>Solicitar Turno</h3>
                                 <h4>Ingrese sus datos</h4>
                                 <form action="">
@@ -87,7 +87,7 @@
                                         <option value="Otros"></option>
                                     </datalist>
                                     <label  for="establecimiento-choice">Fecha y Hora</label>
-                                    <input id="calendar" type="datetime-local" required>
+                                    <input id="fechaReserva" type="date" min="2021-11-01" required>
                                 </div>
                                 <input type="submit" class="btn-submit btn btn-dark" value="Enviar solicitud"> 
                             </form>
@@ -100,7 +100,7 @@
                             <a href="#" id="btn-cerrar-popup2" class="btn-cerrar-popup2"><i class="fas fa-times"></i></a><!-- Botón para cerrar la ventana-->
                             <h3>Mis turnos</h3>
                             <h4>Ingrese sus datos</h4>
-                            <form action="">
+                            <form>
                             <div class="contenedor-inputs">
                                 <input type="text" placeholder="Nombre y Apellido"><!-- Sirve para generar campos a rellenar-->
                                 <input type="text" placeholder="DNI">
@@ -208,7 +208,6 @@
             </div>
         </footer>
         
-        <script src="./js/popup.js"> </script>
-        <script src="./js/popup2.js"> </script>
+        <script src="./js/funcionesGrupo99.js"> </script>
     </body>
   </html>    
