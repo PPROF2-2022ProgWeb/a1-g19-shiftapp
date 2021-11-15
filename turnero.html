@@ -102,13 +102,13 @@
                             <h4>Ingrese sus datos</h4>
                             <form action="">
                             <div class="contenedor-inputs">
-                                <input type="text" placeholder="Nombre completo"><!-- Sirve para generar campos a rellenar-->
+                                <input type="text" placeholder="Nombre y Apellido"><!-- Sirve para generar campos a rellenar-->
                                 <input type="text" placeholder="DNI">
                                 <input type="email" placeholder="Correo electrónico">  
                             </div>
                             <h4>Seleccione</h4>
                             <div class="contenedor-inputs">
-                                <label for="establecimiento-choice">Lugar</label>
+                                <label for="establecimiento-choice">Lugar del turno</label>
                                 <input list="nombres-establecimientos" id="establecimiento-choice" name="establecimiento-choice">
                                 <datalist id="nombres-establecimientos"><!-- Sirve para generar un listado desplegable-->
                                     <option value="Establecimiento educativo">
@@ -119,6 +119,11 @@
                                 </datalist>
                                 <label for="establecimiento-choice">Fecha y Hora</label>
                                 <input type="datetime-local"><!-- Sirve para generar un calendario-->
+                                <br>
+                                <br>
+                                <br><br>¿No recuerda la fecha de su turno? Tilde aquí<br>
+                                <input type="checkbox" name="no recuerda fecha">
+                        
                             </div>
                             <input type="submit" class="btn-submit btn btn-dark" value="Imprimir historial"> 
                         </form>
