@@ -254,3 +254,40 @@ body {
   .list-unstyled{
     font-size: 20px;
   }
+    /* Responsive Design - adaptable a dispositivos moviles*/
+
+@media screen and (max-width: 1220px){
+
+	.titulo{
+		max-width: 1000px;
+		padding: 0 20px;
+		
+	}
+		  
+	.container {
+	  display: flex;
+	  justify-content: center;
+	  font-weight: 100%;
+    }
+	
+  @media screen and (max-width: 500px){
+  
+		.titulo{
+		
+		padding: 0px;
+		font-size:20vw;
+  
+	}
+	.subtitulo{
+		font-size: 100%;
+	}
+	
+}
+	.container {
+  
+	  justify-content: 50%;
+	  font-size: 100%;
+	}
+  
+		  
+  }
