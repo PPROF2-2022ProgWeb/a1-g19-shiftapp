@@ -174,7 +174,7 @@ body {
 /* POPUP Mis turnos*/
 /*-----------------*/
 .overlay2 {
-	background: rgba(0,0,0,.3);
+	background: rgba(245, 221, 221, 0.3);
 	position: absolute;
 	top: 0;
 	bottom: 0;
@@ -356,4 +356,41 @@ body {
   }
   .list-unstyled{
     font-size: 20px;
+  }
+    /* Responsive Design - adaptable a dispositivos moviles*/
+
+@media screen and (max-width: 1220px){
+
+	.titulo{
+		max-width: 1000px;
+		padding: 0 20px;
+		
+	}
+		  
+	.container {
+	  display: flex;
+	  justify-content: center;
+	  font-weight: 100%;
+    }
+	
+  @media screen and (max-width: 500px){
+  
+		.titulo{
+		
+		padding: 0px;
+		font-size:20vw;
+  
+	}
+	.subtitulo{
+		font-size: 100%;
+	}
+	
+}
+	.container {
+  
+	  justify-content: 50%;
+	  font-size: 100%;
+	}
+  
+		  
   }
