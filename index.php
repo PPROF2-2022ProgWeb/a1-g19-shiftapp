@@ -1,3 +1,21 @@
+<?php
+  session_start();
+
+  require 'database.php';
+
+  if (isset($_SESSION['user_id'])) {
+    $records = $conn->prepare('SELECT id, nombre, contrasenia FROM usuario WHERE id = :id');
+    $records->bindParam(':id', $_SESSION['user_id']);
+    $records->execute();
+    $results = $records->fetch(PDO::FETCH_ASSOC);
+
+    $user = null;
+
+    if (count($results) > 0) {
+      $user = $results;
+    }
+  }
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -17,6 +35,18 @@
     
 </head>
 <body>
+<?php if(!empty($user)): ?>
+      <br> bienvenido <?= $user['email']; ?>
+      <br>ingresaste de forma satisfactoria
+      <a href="logout.php">
+        Logout
+      </a>
+    <?php else: ?>
+      <h1>por favor ingresa nuevamente</h1>
+
+      <a href="login.php">Login</a> or
+      <a href="signup.php">SignUp</a>
+    <?php endif; ?>
  <header class="header" id="inicio">
       <!-- Menú -->
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -28,23 +58,23 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="index.html">Inicio <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="index.php">Inicio <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="login.html">Ingresar</a>
+              <a class="nav-link" href="login.php">Ingresar</a>
             </li>
             
             <li class="nav-item">
-              <a class="nav-link" href="newaccount.html">Crear Cuenta</a>
+              <a class="nav-link" href="newaccount.php">Crear Cuenta</a>
             </li>
           </li>
             
           <li class="nav-item">
-            <a class="nav-link" href="index.html#servicio">Servicios</a>
+            <a class="nav-link" href="index.php#servicio">Servicios</a>
           </li>
           
           <li class="nav-item">
-            <a class="nav-link" href="index.html#contacto">Contacto</a>
+            <a class="nav-link" href="index.php#contacto">Contacto</a>
           </li>
         </ul>
           <form class="form-inline my-2 my-lg-0">
@@ -170,10 +200,10 @@
               <div class="row">
                   <div class="col-6">
                       <ul class="list-unstyled">
-                          <li><a href="index.html">Inicio</a></li>
-                          <li><a href="login.html">Ingresar</a></li>
-                          <li><a href="newaccount.html">Crear Cuenta</a></li>
-                          <li><a href="index.html#servicio">Servicios</a></li>
+                          <li><a href="index.php">Inicio</a></li>
+                          <li><a href="login.php">Ingresar</a></li>
+                          <li><a href="newaccount.php">Crear Cuenta</a></li>
+                          <li><a href="index.php#servicio">Servicios</a></li>
                           <li><a href="turnero.html">Turnero</a></li>
                       </ul>
                   </div>

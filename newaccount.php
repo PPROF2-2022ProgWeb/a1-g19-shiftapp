@@ -1,3 +1,25 @@
+ <!--este bloque de codigo solo usa la conexion realizada en database.php -->
+<?php
+require 'database.php';
+$message = '';
+//rellenar otros campos, validar que campos deberian ir con el equipo
+if (!empty($_POST['nombreusuario']) && !empty($_POST['email']) && !empty($_POST['contrasenia']))
+{
+  //pasar a mayuscula en caso de que tire un error el insert
+  $sql = "INSERT INTO users(nombreusuario, email, contrasenia) values (:nombreusuario, :email, :contrasenia)";
+  $stmt = $conn->prepare($sql);
+  $stmt->bindParam(':nombreusuario', $_POST['nombreusuario']);
+  $stmt->bindParam(':email', $_POST['email']);
+  $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
+  $stmt->bindParam(':password', $password);
+
+  if ($stmt->execute()) {
+    $message = 'usuario creado correctamente';
+  } else {
+    $message = 'error, no se pudo crear la cuenta';
+  }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,6 +42,9 @@
       </script>
 <script>"./js/funcionesGrupo99.js"</script>
 <body>
+<?php if(!empty($message)): ?>
+      <p> <?= $message ?></p>
+    <?php endif; ?>
   <header>
     <!--Menú -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -31,23 +56,23 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="index.html">Inicio <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="index.php">Inicio <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="login.html">Ingresar</a>
+            <a class="nav-link" href="login.php">Ingresar</a>
           </li>
           
           <li class="nav-item">
-            <a class="nav-link" href="newaccount.html">Crear Cuenta</a>
+            <a class="nav-link" href="newaccount.php">Crear Cuenta</a>
           </li>
         </li>
           
         <li class="nav-item">
-          <a class="nav-link" href="index.html#servicio">Servicios</a>
+          <a class="nav-link" href="index.php#servicio">Servicios</a>
         </li>
         
         <li class="nav-item">
-          <a class="nav-link" href="index.html#contacto">Contacto</a>
+          <a class="nav-link" href="index.php#contacto">Contacto</a>
         </li>
       </ul>
         <form class="form-inline my-2 my-lg-0">
@@ -69,7 +94,7 @@
                     <h1 class="text-center pt-3">Crear Cuenta</h1>
                 </div>
                 <div class="col-md-6 bg-dark shadow">
-                    <form action="#" class="p-4 text-white" class="was-validated">
+                    <form action="newaccount.php" method="post" class="p-4 text-white" class="was-validated">
                       <div class="form-group">
                           <label for="name"><i class="fas fa-user"></i> Nombre </label>
                           <input type="text" class="form-control" id="nombre" placeholder="ingrese nombre" required>
@@ -132,10 +157,10 @@
                   <!--Enlaces a paginas internas -->
                     <div class="col-6">
                         <ul class="list-unstyled">
-                            <li><a href="index.html">Inicio</a></li>
-                            <li><a href="login.html">Ingresar</a></li>
-                            <li><a href="newaccount.html">Crear Cuenta</a></li>
-                            <li><a href="index.html#servicio">Servicios</a></li>
+                            <li><a href="index.php">Inicio</a></li>
+                            <li><a href="login.php">Ingresar</a></li>
+                            <li><a href="newaccount.php">Crear Cuenta</a></li>
+                            <li><a href="index.php#servicio">Servicios</a></li>
                             <li><a href="turnero.html">Turnero</a></li>
                         </ul>
                     </div>
