@@ -62,7 +62,7 @@ btnCerrarPopup2.addEventListener('click', function(e){
 });
 // Fin del POPUP Mis turnos
 
-//funcion validar mas de 2 caracteres (en el login.php boton enviar de contacto)
+//funcion validar mas de 2 caracteres (en el login.html boton enviar de contacto)
 function checkLength(){
     var textbox = document.getElementById("exampleInputName");
     var textbox2 = document.getElementById("exampleInputSurname");
