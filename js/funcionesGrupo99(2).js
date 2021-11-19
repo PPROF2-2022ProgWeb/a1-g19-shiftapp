@@ -13,5 +13,5 @@ consultaVer.value = localStorage.getItem('consulta')
 
 
 setTimeout(() => {
-    location.replace("/index.php")
+    location.replace("/index.html")
 }, 5000);
