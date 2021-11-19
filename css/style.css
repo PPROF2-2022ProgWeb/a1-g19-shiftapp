@@ -243,3 +243,63 @@ h2, .h2 {
     color: #fff;
     text-align: center;
   }
+
+  #form-contacto{
+    margin-left: 30%;
+  }
+
+  /* Responsive Design - adaptable a dispositivos moviles*/
+
+@media screen and (max-width: 1220px){
+
+  .titulo{
+      max-width: 1000px;
+      padding: 0 20px;
+      
+  }
+  
+  #form-contacto{
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    
+  }
+  
+ 
+  .container {
+    display: flex;
+    justify-content: center;
+    font-weight: 100%;
+
+  
+}
+  
+}
+@media screen and (max-width: 500px){
+
+  
+  .titulo{
+      
+      padding: 0px;
+      font-size:20vw;
+
+  }
+  .copy{
+    padding: 0px;
+    font-size:5vw;
+  }
+    #form-contacto{
+      width: 100%;
+      
+      margin-left: 0%;
+     
+
+}
+  .container {
+
+    justify-content: 50%;
+    font-size: 100%;
+  }
+
+        
+}

@@ -1,3 +1,25 @@
+ <!--este bloque de codigo solo usa la conexion realizada en database.php -->
+<?php
+require 'database.php';
+$message = '';
+//rellenar otros campos, validar que campos deberian ir con el equipo
+if (!empty($_POST['nombreusuario']) && !empty($_POST['email']) && !empty($_POST['contrasenia']))
+{
+  //pasar a mayuscula en caso de que tire un error el insert
+  $sql = "INSERT INTO users(nombreusuario, email, contrasenia) values (:nombreusuario, :email, :contrasenia)";
+  $stmt = $conn->prepare($sql);
+  $stmt->bindParam(':nombreusuario', $_POST['nombreusuario']);
+  $stmt->bindParam(':email', $_POST['email']);
+  $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
+  $stmt->bindParam(':password', $password);
+
+  if ($stmt->execute()) {
+    $message = 'usuario creado correctamente';
+  } else {
+    $message = 'error, no se pudo crear la cuenta';
+  }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,8 +35,16 @@
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-</head>
+   <!--Pequeño alert para accionar al presionar el boton registrar -->
+   <script> function mostrarMensaje(){
+      alert("Operacion Exitosa");
+      }
+      </script>
+<script>"./js/funcionesGrupo99.js"</script>
 <body>
+<?php if(!empty($message)): ?>
+      <p> <?= $message ?></p>
+    <?php endif; ?>
   <header>
     <!--Menú -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -26,23 +56,23 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="index.html">Inicio <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="index.php">Inicio <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="login.html">Ingresar</a>
+            <a class="nav-link" href="login.php">Ingresar</a>
           </li>
           
           <li class="nav-item">
-            <a class="nav-link" href="newaccount.html">Crear Cuenta</a>
+            <a class="nav-link" href="newaccount.php">Crear Cuenta</a>
           </li>
         </li>
           
         <li class="nav-item">
-          <a class="nav-link" href="index.html#servicio">Servicios</a>
+          <a class="nav-link" href="index.php#servicio">Servicios</a>
         </li>
         
         <li class="nav-item">
-          <a class="nav-link" href="index.html#contacto">Contacto</a>
+          <a class="nav-link" href="index.php#contacto">Contacto</a>
         </li>
       </ul>
         <form class="form-inline my-2 my-lg-0">
@@ -64,10 +94,12 @@
                     <h1 class="text-center pt-3">Crear Cuenta</h1>
                 </div>
                 <div class="col-md-6 bg-dark shadow">
-                    <form action="#" class="p-4 text-white">
+                    <form action="newaccount.php" method="post" class="p-4 text-white" class="was-validated">
                       <div class="form-group">
                           <label for="name"><i class="fas fa-user"></i> Nombre </label>
-                          <input type="text" class="form-control" required>
+                          <input type="text" class="form-control" id="nombre" placeholder="ingrese nombre" required>
+                        <div class="valid-feedback">valid.</div>
+                        <div class="invalid-feedback">por favor llenar campo</div>
                       </div>
                       <div class="form-group">
                         <label for="surname"><i class="fas fa-user"></i> Apellido </label>
@@ -75,7 +107,11 @@
                       </div>
                       <div class="form-group">
                         <label for="date"><i class="fas fa-user"></i> Fecha de Nacimiento </label>
-                        <input type="date" class="form-control" required>
+                        <input id="fech" type="date" class="form-control" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="Edad"><i class="fas fa-user"></i> La edad es </label>
+                        <input id ="ed" type="text" class="form-control" required>
                       </div>
                       <div class="form-group">
                         <label for="provincia"><i class="fas fa-user"></i> Provincia </label>
@@ -102,7 +138,7 @@
                             <input class="form-check-input shadow" type="checkbox"> Recordarme
                           </label>
                       </div>
-                      <button type="submit" class="btn btn btn-light mb-3 mt-3 float-right shadow">Registrar</button>
+                      <button type="submit" onclick="mostrarMensaje()" class="btn btn btn-light mb-3 mt-3 float-right shadow">Registrar</button>
                     </form>
                 </div>
               </div>
@@ -121,19 +157,20 @@
                   <!--Enlaces a paginas internas -->
                     <div class="col-6">
                         <ul class="list-unstyled">
-                            <li><a href="index.html">Inicio</a></li>
-                            <li><a href="login.html">Ingresar</a></li>
-                            <li><a href="newaccount.html">Crear Cuenta</a></li>
-                            <li><a href="index.html#servicio">Servicios</a></li>
+                            <li><a href="index.php">Inicio</a></li>
+                            <li><a href="login.php">Ingresar</a></li>
+                            <li><a href="newaccount.php">Crear Cuenta</a></li>
+                            <li><a href="index.php#servicio">Servicios</a></li>
+                            <li><a href="turnero.html">Turnero</a></li>
                         </ul>
                     </div>
                     <!--Fin enlaces a paginas internas -->
                     <!--Enlaces de interes a sitios externos -->
                     <div class="col-6">
                         <ul class="list-unstyled">
-                            <li><a href="https://calendar.google.com/calendar/u/0/r?pli=1">Google Calendar</a></li>
-                            <li><a href="https://news.google.com/topstories?hl=es-419&gl=AR&ceid=AR:es-419">Google News</a></li>
-                            <li><a href="https://weather.com/es-AR/tiempo/hoy/l/-31.43,-64.15?par=google">The Wheater Chanel</a></li>
+                            <li><a href="https://calendar.google.com/calendar/u/0/r?pli=1" target="blank">Google Calendar</a></li>
+                            <li><a href="https://news.google.com/topstories?hl=es-419&gl=AR&ceid=AR:es-419" target="blank">Google News</a></li>
+                            <li><a href="https://weather.com/es-AR/tiempo/hoy/l/-31.43,-64.15?par=google" target="blank">The Wheater Chanel</a></li>
                         </ul>
                     </div> 
                     <!-- Fin de enlaces de interes a sitios externos -->
@@ -163,23 +200,41 @@
                 <hr>
             </div>
             <div class="col-md-5">
-                <form>
+              <!-- validacion campos vacios bootstrap-->
+                <form class="was-validated">
+                  <div class="form-group">
                     <fieldset class="form-group">
-                      <input type="text" class="form-control" id="exampleInputName" placeholder="Ingrese su nombre">
+                      <input type="text" class="form-control" id="exampleInputName" placeholder="Ingrese su nombre" required>
+                    <div class="valid-feedback">ok</div>
+                    <div class="invalid-feedback">ingresar nombre</div>
                     </fieldset>
+                  </div> 
+                  <div class="form-group">
                     <fieldset class="form-group">
-                    <input type="text" class="form-control" id="exampleInputSurname" placeholder="Ingrese su apellido">
-                    </fieldset>
+                    <input type="text" class="form-control" id="exampleInputSurname" placeholder="Ingrese su apellido" required>
+                    <div class="valid-feedback">ok</div>
+                    <div class="invalid-feedback">ingresar apellido</div>  
+                  </fieldset>
+                  <div class="form-group">
+                  </div>
+                  <div class="form-group">
                     <fieldset class="form-group">
-                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Ingrese su E-mail">
-                    </fieldset>
+                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Ingrese su E-mail" required>
+                        <div class="valid-feedback">ok</div>
+                        <div class="invalid-feedback">ingresar email</div>  
+                      </fieldset>
+                  </div>
+                  <div class="form-group">
                     <fieldset class="form-group">
-                        <textarea class="form-control" id="exampleMessage" placeholder="Ingrese su Mensaje"></textarea>
+                        <textarea class="form-control" id="exampleMessage" placeholder="Ingrese su Mensaje" required></textarea>
                     </fieldset>
+                    <div class="valid-feedback">ok</div>
+                    <div class="invalid-feedback">ingresar mensaje</div>  
+                  </div>
                     <fieldset class="form-group text-xs-right ">
-                      <button type="button" class="btn btn-dark">Enviar</button>
+                      <button type="submit" class="btn btn-dark">Enviar</button>
                     </fieldset>
-                </form>
+                  </form>
                 <!-- Fin de formulario de contacto en el footer-->
             </div>
         </div>

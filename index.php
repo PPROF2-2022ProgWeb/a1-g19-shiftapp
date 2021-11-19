@@ -1,13 +1,30 @@
+<?php
+  session_start();
+
+  require 'database.php';
+
+  if (isset($_SESSION['user_id'])) {
+    $records = $conn->prepare('SELECT id, nombre, contrasenia FROM usuario WHERE id = :id');
+    $records->bindParam(':id', $_SESSION['user_id']);
+    $records->execute();
+    $results = $records->fetch(PDO::FETCH_ASSOC);
+
+    $user = null;
+
+    if (count($results) > 0) {
+      $user = $results;
+    }
+  }
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1">
     <title>ShiftApp</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="./img/logo2.ico" type="image/x-icon">
-    <script src="./js/formulario.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
@@ -18,6 +35,18 @@
     
 </head>
 <body>
+<?php if(!empty($user)): ?>
+      <br> bienvenido <?= $user['email']; ?>
+      <br>ingresaste de forma satisfactoria
+      <a href="logout.php">
+        Logout
+      </a>
+    <?php else: ?>
+      <h1>por favor ingresa nuevamente</h1>
+
+      <a href="login.php">Login</a> or
+      <a href="signup.php">SignUp</a>
+    <?php endif; ?>
  <header class="header" id="inicio">
       <!-- Menú -->
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -29,23 +58,23 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="index.html">Inicio <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="index.php">Inicio <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="login.html">Ingresar</a>
+              <a class="nav-link" href="login.php">Ingresar</a>
             </li>
             
             <li class="nav-item">
-              <a class="nav-link" href="newaccount.html">Crear Cuenta</a>
+              <a class="nav-link" href="newaccount.php">Crear Cuenta</a>
             </li>
           </li>
             
           <li class="nav-item">
-            <a class="nav-link" href="index.html#servicio">Servicios</a>
+            <a class="nav-link" href="index.php#servicio">Servicios</a>
           </li>
           
           <li class="nav-item">
-            <a class="nav-link" href="index.html#contacto">Contacto</a>
+            <a class="nav-link" href="index.php#contacto">Contacto</a>
           </li>
         </ul>
           <form class="form-inline my-2 my-lg-0">
@@ -60,8 +89,8 @@
         <h1 class="titulo"><strong>ShiftApp</strong></h1>
         <p class="copy">Aplicación para agendar turnos online desde la comodidad del hogar.</p>
         <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
-          <a class="btn btn-dark btn-lg px-4 me-sm-3" href="#servicios" style="margin: 10px">Comenzar</a>
-          <a class="btn btn-outline-light btn-lg px-4" href="#!" style="margin: 10px">Leer más</a>
+          <a class="btn btn-dark btn-lg px-4 me-sm-3" href="#servicio" style="margin: 10px">Comenzar</a>
+          <a class="btn btn-outline-light btn-lg px-4" href="turnero.html" style="margin: 10px">Ir a turnero</a>
       </div>
      </div>
      
@@ -78,9 +107,9 @@
         <div class="container px-5 my-5">
             <div class="row gx-5">
                 <div class="col-lg-4 mb-5 mb-lg-0">
-                    <div class="feature bg-dark bg-gradient text-white rounded-3"><i class="bi bi-folder2-open"></i></div>
+                    <div class="feature bg-dark bg-gradient text-white rounded-3 mb-3"><i class="bi bi-folder2-open"></i></div>
                     <h2 class="h4 fw-bolder">Características</h2>
-                    <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
+                    <p>Pedí turnos desde tu casa y asistí directamente.</p>
                     <a class="text-decoration-none" href="#!">
                          Saber más
                         <i class="bi bi-arrow-right"></i>
@@ -89,7 +118,7 @@
                 <div class="col-lg-4 mb-5 mb-lg-0">
                     <div class="feature bg-dark bg-gradient text-white rounded-3 mb-3"><i class="bi bi-card-checklist"></i></div>
                     <h2 class="h4 fw-bolder">Requerimientos</h2>
-                    <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
+                    <p>¿Querés saber cuales son los datos que precisamos para que obtengas tu turno, los horarios y dias de atencion más comodos para vos?</p>
                     <a class="text-decoration-none" href="#!">
                         Saber más
                         <i class="bi bi-arrow-right"></i>
@@ -97,8 +126,8 @@
                 </div>
                 <div class="col-lg-4">
                     <div class="feature bg-dark bg-gradient text-white rounded-3 mb-3"><i class="bi bi-info-circle"></i></div>
-                    <h2 class="h4 fw-bolder">Contratación</h2>
-                    <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
+                    <h2 class="h4 fw-bolder">Contrataciones</h2>
+                     <p>Espacio dedicado para empresas que precisen de un sistema de turnos eficiente, fácil y adaptable a sus necesidades.  </p>
                     <a class="text-decoration-none" href="#!">
                          Saber más
                         <i class="bi bi-arrow-right"></i>
@@ -171,18 +200,19 @@
               <div class="row">
                   <div class="col-6">
                       <ul class="list-unstyled">
-                          <li><a href="index.html">Inicio</a></li>
-                          <li><a href="login.html">Ingresar</a></li>
-                          <li><a href="newaccount.html">Crear Cuenta</a></li>
-                          <li><a href="index.html#servicio">Servicios</a></li>
+                          <li><a href="index.php">Inicio</a></li>
+                          <li><a href="login.php">Ingresar</a></li>
+                          <li><a href="newaccount.php">Crear Cuenta</a></li>
+                          <li><a href="index.php#servicio">Servicios</a></li>
+                          <li><a href="turnero.html">Turnero</a></li>
                       </ul>
                   </div>
                   <!--Enlaces de interes -->
                   <div class="col-6">
                       <ul class="list-unstyled">
-                          <li><a href="https://calendar.google.com/calendar/u/0/r?pli=1">Google Calendar</a></li>
-                          <li><a href="https://news.google.com/topstories?hl=es-419&gl=AR&ceid=AR:es-419">Google News</a></li>
-                          <li><a href="https://weather.com/es-AR/tiempo/hoy/l/-31.43,-64.15?par=google">The Wheater Chanel</a></li>
+                          <li><a href="https://calendar.google.com/calendar/u/0/r?pli=1" target="blank">Google Calendar</a></li>
+                          <li><a href="https://news.google.com/topstories?hl=es-419&gl=AR&ceid=AR:es-419" target="blank">Google News</a></li>
+                          <li><a href="https://weather.com/es-AR/tiempo/hoy/l/-31.43,-64.15?par=google" target="blank">The Wheater Chanel</a></li>
                       </ul>
                   </div> 
                   <!-- Fin de enlaces de interes -->
@@ -226,7 +256,7 @@
                       <textarea class="form-control" id="exampleMessage" placeholder="Ingrese su Mensaje" required></textarea>
                   </fieldset>
                   <fieldset class="form-group text-xs-right ">
-                    <button type="button" class="btn btn-dark">Enviar</button>
+                    <button id="submitBtn" type="button" class="btn btn-dark">Enviar</button>
                   </fieldset>
               </form>
               <!-- Fin de formulario de contacto en el footer-->
@@ -234,6 +264,7 @@
       </div>
   </div>
 </footer>
-
+<script src="./js/funcionesGrupo99.js"> </script>
+<script src="./js/formulario.js"></script>
 </body>
 </html>
