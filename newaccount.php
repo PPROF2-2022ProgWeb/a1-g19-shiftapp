@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,23 +32,23 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="index.html">Inicio <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="index.php">Inicio <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="login.html">Ingresar</a>
+            <a class="nav-link" href="login.php">Ingresar</a>
           </li>
           
           <li class="nav-item">
-            <a class="nav-link" href="newaccount.html">Crear Cuenta</a>
+            <a class="nav-link" href="newaccount.php">Crear Cuenta</a>
           </li>
         </li>
           
         <li class="nav-item">
-          <a class="nav-link" href="index.html#servicio">Servicios</a>
+          <a class="nav-link" href="index.php#servicio">Servicios</a>
         </li>
         
         <li class="nav-item">
-          <a class="nav-link" href="index.html#contacto">Contacto</a>
+          <a class="nav-link" href="index.php#contacto">Contacto</a>
         </li>
       </ul>
         <form class="form-inline my-2 my-lg-0">
@@ -69,44 +70,44 @@
                     <h1 class="text-center pt-3">Crear Cuenta</h1>
                 </div>
                 <div class="col-md-6 bg-dark shadow">
-                    <form action="#" class="p-4 text-white" class="was-validated">
+                    <form action="#" class="p-4 text-white" class="was-validated" method="post">
                       <div class="form-group">
                           <label for="name"><i class="fas fa-user"></i> Nombre </label>
-                          <input type="text" class="form-control" id="nombre" placeholder="ingrese nombre" required>
+                          <input type="text" class="form-control" name="nombre" placeholder="ingrese nombre" required>
                         <div class="valid-feedback">valid.</div>
                         <div class="invalid-feedback">por favor llenar campo</div>
                       </div>
                       <div class="form-group">
                         <label for="surname"><i class="fas fa-user"></i> Apellido </label>
-                        <input type="text" class="form-control" required>
+                        <input type="text" class="form-control" name="apellidousuario" required>
                       </div>
                       <div class="form-group">
                         <label for="date"><i class="fas fa-user"></i> Fecha de Nacimiento </label>
-                        <input id="fech" type="date" class="form-control" required>
+                        <input id="fech" type="date" class="form-control" name="fech" required>
                       </div>
                       <div class="form-group">
                         <label for="Edad"><i class="fas fa-user"></i> La edad es </label>
-                        <input id ="ed" type="text" class="form-control" required>
+                        <input id ="ed" type="text" class="form-control" name="ed" required>
                       </div>
                       <div class="form-group">
                         <label for="provincia"><i class="fas fa-user"></i> Provincia </label>
-                        <input type="text" class="form-control" required>
+                        <input type="text" class="form-control" id="provincia" name="provincia" required>
                       </div>
                       <div class="form-group">
                         <label for="pais"><i class="fas fa-user"></i> País </label>
-                        <input type="text" class="form-control" required>
+                        <input type="text" class="form-control" id="pais" name="pais" required>
                       </div>
                       <div class="form-group">
                           <label for="email"><i class="fas fa-envelope"></i> Email</label>
-                          <input type="email" class="form-control" required>
+                          <input type="email" class="form-control" name="email" required>
                       </div>
                       <div class="form-group">
                           <label for="pwd"><i class="fas fa-lock"></i> Crear Contraseña</label>
-                          <input type="password" class="form-control" id="pwd" required>
+                          <input type="password" class="form-control" id="pwd1" required>
                       </div>
                       <div class="form-group">
                           <label for="pwd"><i class="fas fa-lock"></i> Confirmar Contraseña</label>
-                          <input type="password" class="form-control" id="pwd" required>
+                          <input type="password" class="form-control" name="pwd2" required>
                       </div>
                       <div class="form-group form-check">
                           <label class="form-check-label">
@@ -114,6 +115,42 @@
                           </label>
                       </div>
                       <button type="submit" onclick="mostrarMensaje()" class="btn btn btn-light mb-3 mt-3 float-right shadow">Registrar</button>
+                    <?php
+                           
+
+                            $hostname="localhost";
+                            $username="root";
+                            $password="";
+                            $dbname="php_login_database";
+                            $usertable=strval("usuario");
+                            
+                            
+                            $conn= new mysqli($hostname,$username, $password, $dbname, 3306);
+                                                       
+                                                       
+                           $nombre = $_POST['nombre'];
+                           $contrasenia = $_POST['pwd2'];
+                           $email = $_POST['email'];
+                           $apellidousuario = $_POST['apellidousuario'];
+                           $fech = $_POST['fech'];
+                           $ed = $_POST['ed'];
+                           $provincia = $_POST['provincia'];
+                           $pais =$_POST['pais'];
+
+                           $query = "INSERT INTO  $usertable  VALUES ('".$nombre."','".$apellidousuario."','".$email."','".$contrasenia."',$fech,$ed,'".$provincia."','".$pais."',0)";
+                           
+                           if ($conn->query($query) === TRUE) {
+                            echo "New record created successfully";
+                          } else {
+                            echo "Error: " . $query . "<br>" . $conn->error;
+                          }
+                          
+                          $conn->close();
+                         
+
+                           
+                    
+                    ?>
                     </form>
                 </div>
               </div>
@@ -132,10 +169,10 @@
                   <!--Enlaces a paginas internas -->
                     <div class="col-6">
                         <ul class="list-unstyled">
-                            <li><a href="index.html">Inicio</a></li>
-                            <li><a href="login.html">Ingresar</a></li>
-                            <li><a href="newaccount.html">Crear Cuenta</a></li>
-                            <li><a href="index.html#servicio">Servicios</a></li>
+                            <li><a href="index.php">Inicio</a></li>
+                            <li><a href="login.php">Ingresar</a></li>
+                            <li><a href="newaccount.php">Crear Cuenta</a></li>
+                            <li><a href="index.php#servicio">Servicios</a></li>
                             <li><a href="turnero.html">Turnero</a></li>
                         </ul>
                     </div>

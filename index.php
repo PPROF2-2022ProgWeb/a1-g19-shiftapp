@@ -28,23 +28,23 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="index.html">Inicio <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="index.php">Inicio <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="login.html">Ingresar</a>
+              <a class="nav-link" href="login.php">Ingresar</a>
             </li>
             
             <li class="nav-item">
-              <a class="nav-link" href="newaccount.html">Crear Cuenta</a>
+              <a class="nav-link" href="newaccount.php">Crear Cuenta</a>
             </li>
           </li>
             
           <li class="nav-item">
-            <a class="nav-link" href="index.html#servicio">Servicios</a>
+            <a class="nav-link" href="index.php#servicio">Servicios</a>
           </li>
           
           <li class="nav-item">
-            <a class="nav-link" href="index.html#contacto">Contacto</a>
+            <a class="nav-link" href="index.php#contacto">Contacto</a>
           </li>
         </ul>
           <form class="form-inline my-2 my-lg-0">
@@ -170,10 +170,10 @@
               <div class="row">
                   <div class="col-6">
                       <ul class="list-unstyled">
-                          <li><a href="index.html">Inicio</a></li>
-                          <li><a href="login.html">Ingresar</a></li>
-                          <li><a href="newaccount.html">Crear Cuenta</a></li>
-                          <li><a href="index.html#servicio">Servicios</a></li>
+                          <li><a href="index.php">Inicio</a></li>
+                          <li><a href="login.php">Ingresar</a></li>
+                          <li><a href="newaccount.php">Crear Cuenta</a></li>
+                          <li><a href="index.php#servicio">Servicios</a></li>
                           <li><a href="turnero.html">Turnero</a></li>
                       </ul>
                   </div>
@@ -236,5 +236,6 @@
 </footer>
 <script src="./js/funcionesGrupo99.js"> </script>
 <script src="./js/formulario.js"></script>
+
 </body>
 </html>

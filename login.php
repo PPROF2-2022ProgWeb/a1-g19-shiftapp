@@ -32,23 +32,23 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="index.html">Inicio <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="index.php">Inicio <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="login.html">Ingresar</a>
+            <a class="nav-link" href="login.php">Ingresar</a>
           </li>
           
           <li class="nav-item">
-            <a class="nav-link" href="newaccount.html">Crear Cuenta</a>
+            <a class="nav-link" href="newaccount.php">Crear Cuenta</a>
           </li>
         </li>
           
         <li class="nav-item">
-          <a class="nav-link" href="index.html#servicio">Servicios</a>
+          <a class="nav-link" href="index.php#servicio">Servicios</a>
         </li>
         
         <li class="nav-item">
-          <a class="nav-link" href="index.html#contacto">Contacto</a>
+          <a class="nav-link" href="index.php#contacto">Contacto</a>
         </li>
       </ul>
         <form class="form-inline my-2 my-lg-0">
@@ -67,27 +67,70 @@
     <img src="img/logo2.png" class="avatar" alt="Avatar Image">
     <h1>Ingresar</h1>
     <!-- Validacion Campos Vacios bootstrap-->
-    <form class="was-validated">
+    <form class="was-validated" method="post">
       <div class="form-group">
       <!-- USERNAME INPUT -->
       <label for="username" class="form-label" class=:needs-validation>Usuario</label>
-      <input type="text" placeholder="Ingrese Usuario" required>
+      <input type="text" placeholder="Ingrese Usuario" name="nombreusuario" required>
       <div class="valid-feedback">ok</div>
       <div class="invalid-feedback">ingresar usuario</div>  
     </div>
     <div class="form-group">
       <!-- PASSWORD INPUT -->
       <label for="password">Contraseña</label>
-      <input type="password" placeholder="Ingrese Contraseña" required>
+      <input type="password" placeholder="Ingrese Contraseña" name="contrasenia" required>
       <div class="valid-feedback">ok</div>
       <div class="invalid-feedback">ingresar contraseña</div>  
     </div>
       <input type="submit" value="Confirmar">
       <a href="#">Olvido su contraseña?</a><br>
-      <a href="./newaccount.html">No tiene cuenta?</a>
+      <a href="./newaccount.php">No tiene cuenta?</a>
+      <?php
+            
+            $hostname="localhost";
+            $username="root";
+            $password="";
+            $dbname="php_login_database";
+            $usertable=strval("usuario");
+
+
+            $conn= new mysqli($hostname,$username, $password, $dbname, 3306);
+                                
+                                      
+            $nombreusuario = $_POST['nombreusuario'];
+            $contrasenia = $_POST['contrasenia'];
+
+
+            $query = "SELECT * FROM  $usertable WHERE contrasenia = '".$contrasenia."' ";
+            $pass = $conn->query($query);
+            
+            $comparepass =  $pass->num_rows;
+            $pass->close();
+            if ($comparepass >0) {
+            echo "Acceso correcto";
+
+            $query2 = "SELECT * FROM  turnos WHERE disponibilidad > 0 ";
+            $result = $conn->query($query2);
+            $compareresult = $result->num_rows;
+            if($compareresult > 0){
+              echo "Aun quedan turnos disponibles";
+            }
+            else{
+              echo "Lo lamento, no hay turnos disponibles";
+            }
+
+            } else {
+            echo "Error: Contraseña equivocada ";
+            }
+
+           
+
+
+?>
     </form>
   </div>
   <!--Fin de Login -->
+ 
 </section>
 </main>
 <!--Footer-->
@@ -99,10 +142,10 @@
               <div class="row">
                   <div class="col-6">
                       <ul class="list-unstyled">
-                          <li><a href="index.html">Inicio</a></li>
-                          <li><a href="login.html">Ingresar</a></li>
-                          <li><a href="newaccount.html">Crear Cuenta</a></li>
-                          <li><a href="index.html#servicio">Servicios</a></li>
+                          <li><a href="index.php">Inicio</a></li>
+                          <li><a href="login.php">Ingresar</a></li>
+                          <li><a href="newaccount.php">Crear Cuenta</a></li>
+                          <li><a href="index.php#servicio">Servicios</a></li>
                           <li><a href="turnero.html">Turnero</a></li>
                       </ul>
                   </div>
