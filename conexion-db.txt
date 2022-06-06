@@ -1,0 +1,7 @@
+Se creo la base en planet scale
+//datos de la conexion de la conexion
+//connect to db
+database: shiftapp-db
+username: j9nn1cylljit
+host: fr65ql9ks8xf.us-east-1.psdb.cloud
+password: pscale_pw_JxB1w36VniCzVi0lI89di8W8WSNXwtDlqU2n8wL9p2I
