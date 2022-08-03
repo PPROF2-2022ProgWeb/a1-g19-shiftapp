@@ -6,6 +6,7 @@
     <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1">
     <title>ShiftApp</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/idioma.css">
     <link rel="icon" href="./img/logo2.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
@@ -17,6 +18,13 @@
     
 </head>
 <body>
+  <!--Botón para traducir la página-->
+  <div class="idioma">
+    <span class="es">Español</span>
+    <input type="checkbox" class="check">
+    <span class="en">Inglés</span>
+  </div>
+  <!--Fin del botón para traducir la página-->
  <header class="header" id="inicio">
       <!-- Menú -->
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -88,7 +96,7 @@
                 <div class="col-lg-4 mb-5 mb-lg-0">
                     <div class="feature bg-dark bg-gradient text-white rounded-3 mb-3"><i class="bi bi-card-checklist"></i></div>
                     <h2 class="h4 fw-bolder">Requerimientos</h2>
-                    <p>¿Querés saber cuales son los datos que precisamos para que obtengas tu turno, los horarios y dias de atencion más comodos para vos?</p>
+                    <p>¿Querés saber cuales son los datos que precisamos para que obtengas tu turno, los horarios y días de atención más cómodos para vos?</p>
                     <a class="text-decoration-none" href="#!">
                         Saber más
                         <i class="bi bi-arrow-right"></i>
@@ -138,7 +146,7 @@
                 <img class="d-block w-100" src="img/young-businesswoman-holding-coffee-.jpg" alt="Second slide">
                 <div class="carousel-caption d-none d-md-block">
                     <h2>Cuando llega a sucursal</h2>
-                    <p>Una vez que el cliente arribe a la sucursal, deberá confirmar su arribo desde el link que ha recibido, por Recepcionista, SMS y/o email.</p>
+                    <p>Una vez que el cliente arribe a la sucursal, deberá confirmar su presencia desde el link que ha recibido, por Recepcionista, SMS y/o email.</p>
                 </div>
             </div>
             <div class="carousel-item vh-100">
@@ -151,11 +159,11 @@
         </div>
         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
+                <span class="sr-only">Anterior</span>
             </a>
         <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
+                <span class="sr-only">Siguiente</span>
             </a>
       </div>
      <!--Fin de carrusel-->
@@ -236,6 +244,6 @@
 </footer>
 <script src="./js/funcionesGrupo99.js"> </script>
 <script src="./js/formulario.js"></script>
-
+<script src="./js/idioma.js"></script>
 </body>
 </html>

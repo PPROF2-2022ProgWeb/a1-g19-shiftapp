@@ -87,10 +87,10 @@
       <a href="./newaccount.php">No tiene cuenta?</a>
       <?php
             
-            $hostname="localhost";
-            $username="root";
-            $password="";
-            $dbname="php_login_database";
+            $hostname="fr65ql9ks8xf.us-east-1.psdb.cloud";
+            $username="dw2vbsghodhm";
+            $password="pscale_pw_VfCoIaxbp1Ry9__1kvhcaeFk5LyYKUXKc_8RgkI3M5k";
+            $dbname="shiftapp-db";
             $usertable=strval("usuario");
 
 
