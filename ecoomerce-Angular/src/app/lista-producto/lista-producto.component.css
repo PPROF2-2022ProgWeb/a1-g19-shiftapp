@@ -1,0 +1,26 @@
+.producto{
+    width: 250px;
+    height: 250px;
+    margin: 10px;
+    float: left;
+}
+
+
+.imgProducto{
+    width: 60px;
+    height: 60px;
+    float: left;
+}
+
+.button{
+    clear: both;
+    background-color: blue !important;
+    display: flex;
+    border-radius: 2px;
+    color: white;
+    border: none;
+}
+
+.precio{
+    color: red;
+}

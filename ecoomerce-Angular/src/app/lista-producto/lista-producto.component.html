@@ -1,0 +1,7 @@
+<div class="producto" *ngFor="let producto of productos">
+    <h2>{{producto.nombre}}</h2>
+    <p>{{producto.descripcion}}</p>
+    <img class="imgProducto" src="assets/productos/{{producto.imagen}}">
+    <span class="precio"><strong>Precio: </strong>{{producto.precio |currency}}</span>
+    <button class="button" (click)="adicionarCarrito()">Comprar</button>
+</div>
