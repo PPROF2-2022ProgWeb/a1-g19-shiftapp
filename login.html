@@ -85,48 +85,7 @@
       <input type="submit" value="Confirmar">
       <a href="#">Olvido su contraseña?</a><br>
       <a href="./newaccount.php">No tiene cuenta?</a>
-      <?php
-            
-            $hostname="fr65ql9ks8xf.us-east-1.psdb.cloud";
-            $username="dw2vbsghodhm";
-            $password="pscale_pw_VfCoIaxbp1Ry9__1kvhcaeFk5LyYKUXKc_8RgkI3M5k";
-            $dbname="shiftapp-db";
-            $usertable=strval("usuario");
 
-
-            $conn= new mysqli($hostname,$username, $password, $dbname, 3306);
-                                
-                                      
-            $nombreusuario = $_POST['nombreusuario'];
-            $contrasenia = $_POST['contrasenia'];
-
-
-            $query = "SELECT * FROM  $usertable WHERE contrasenia = '".$contrasenia."' ";
-            $pass = $conn->query($query);
-            
-            $comparepass =  $pass->num_rows;
-            $pass->close();
-            if ($comparepass >0) {
-            echo "Acceso correcto";
-
-            $query2 = "SELECT * FROM  turnos WHERE disponibilidad > 0 ";
-            $result = $conn->query($query2);
-            $compareresult = $result->num_rows;
-            if($compareresult > 0){
-              echo "Aun quedan turnos disponibles";
-            }
-            else{
-              echo "Lo lamento, no hay turnos disponibles";
-            }
-
-            } else {
-            echo "Error: Contraseña equivocada ";
-            }
-
-           
-
-
-?>
     </form>
   </div>
   <!--Fin de Login -->
